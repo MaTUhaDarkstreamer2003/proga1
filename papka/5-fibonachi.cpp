@@ -1,15 +1,22 @@
 #include <iostream>
+#include <vector>
 #include <string>
 
 
 using namespace std;
 
-long long int fact(int i)
+long long int fib(int i)
 {
-    if (i==0)
+    if (i==1 || i==2)
         return 1;
     else
-        return i*fact(i-1);
+        return fib(i-1)+fib(i-2);
+}
+
+void fibb (vector<long long int>& X, int d)
+{
+    vector <long long int> Y = X;
+    X.push_back(Y[d-1]+Y[d-2]);
 }
 
 int main()
@@ -18,37 +25,46 @@ int main()
 
     while(o!=1)
     {
+        vector<long long int> X = {0, 1, 1};
         cout<<"vvedite chislo";
         cout<<"\n";
         string str;
         cin>>str;
         bool is_number = true;
         for (char c : str)
-        { // проходим по каждому символу строки
+        { // ГЇГ°Г®ГµГ®Г¤ГЁГ¬ ГЇГ® ГЄГ Г¦Г¤Г®Г¬Гі Г±ГЁГ¬ГўГ®Г«Гі Г±ГІГ°Г®ГЄГЁ
             if (!isdigit(c))
-            { // если символ не является цифрой
-                is_number = false; // значит это не число
-                break; // выходим из цикла
+            { // ГҐГ±Г«ГЁ Г±ГЁГ¬ГўГ®Г« Г­ГҐ ГїГўГ«ГїГҐГІГ±Гї Г¶ГЁГґГ°Г®Г©
+                is_number = false; // Г§Г­Г Г·ГЁГІ ГЅГІГ® Г­ГҐ Г·ГЁГ±Г«Г®
+                break; // ГўГ»ГµГ®Г¤ГЁГ¬ ГЁГ§ Г¶ГЁГЄГ«Г 
             }
         }
 
         if (is_number)
         {
             int num = stoi(str);
-            if(num<0)
+            if(num<1)
             {
                 cout << "Eto otricatelnoe chislo, vvedite chislo pobolshe";
                 cout<<"\n";
             }
-            if(num>100000)
+            if(num>100)
             {
                 cout << "Eto slishkom bolshoe chislo, vvedite chislo  pomenshe";
                 cout<<"\n";
             }
             else
             {
-                cout<< fact(num);
+                for (int i=1; i<=num; i++)
+                {
+                    if (i>2)
+                    {    
+                        fibb(X, X.size());
+                    }
+                    cout<< X[i]<< " "; 
+                }
                 cout<<"\n";
+                
                 o=1;
             }
         }
