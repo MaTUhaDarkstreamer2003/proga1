@@ -23,12 +23,12 @@ void func(char arr[], char bukva, char bolmal1, char bolmal2, int arr2[],int a)
     }
     if (h==1)
     {
-       cout<<"РЈРіР°РґР°Р»Рё!!!" ;
+       cout<<"�������!!!" ;
        cout<<"\n";
     }
     if (h==0)
     {
-       cout<<"РќРµС‚ С‚Р°РєРѕР№ Р±СѓРєРІС‹!!!" ;
+       cout<<"��� ����� �����!!!" ;
        cout<<"\n";
     }
 }
@@ -38,7 +38,7 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     setlocale(LC_ALL,"russian");
-    cout<<"Р’Р°С€Рµ СЃР»РѕРІРѕ: ";
+    cout<<"���� �����: ";
     string str;
     cin>>str;
     cout<<"\n";
@@ -62,7 +62,7 @@ int main()
     {
         o=0;
         char bukva;
-        cout<<"Р’Р°С€Р° Р±СѓРєРІР°: ";
+        cout<<"���� �����: ";
         cin>>bukva;
         char bolmal1 = bukva+32;
         char bolmal2 = bukva-32;
@@ -80,6 +80,6 @@ int main()
         }
         cout<<"\n";
     }
-    cout<<"Р’С‹ СѓРіР°РґР°Р»Рё СЃР»РѕРІРѕ - "<< str << " Р’С‹ РјРѕР»РѕРґРµС†! РџРѕР·РґСЂР°РІР»СЏСЋ!";
+    cout<<"�� ������� ����� - "<< str << " �� �������! ����������!";
     return 0;
 }
