@@ -23,12 +23,12 @@ void func(char arr[], char bukva, char bolmal1, char bolmal2, int arr2[],int a)
     }
     if (h==1)
     {
-       cout<<"Óãàäàëè!!!" ;
+       cout<<"Ð£Ð³Ð°Ð´Ð°Ð»Ð¸!!!" ;
        cout<<"\n";
     }
     if (h==0)
     {
-       cout<<"Íåò òàêîé áóêâû!!!" ;
+       cout<<"ÐÐµÑ‚ Ñ‚Ð°ÐºÐ¾Ð¹ Ð±ÑƒÐºÐ²Ñ‹!!!" ;
        cout<<"\n";
     }
 }
@@ -38,7 +38,7 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     setlocale(LC_ALL,"russian");
-    cout<<"Âàøå ñëîâî: ";
+    cout<<"Ð’Ð°ÑˆÐµ ÑÐ»Ð¾Ð²Ð¾: ";
     string str;
     cin>>str;
     cout<<"\n";
@@ -62,7 +62,7 @@ int main()
     {
         o=0;
         char bukva;
-        cout<<"Âàøà áóêâà: ";
+        cout<<"Ð’Ð°ÑˆÐ° Ð±ÑƒÐºÐ²Ð°: ";
         cin>>bukva;
         char bolmal1 = bukva+32;
         char bolmal2 = bukva-32;
@@ -80,6 +80,6 @@ int main()
         }
         cout<<"\n";
     }
-    cout<<"Âû óãàäàëè ñëîâî - "<< str << " Âû ìîëîäåö! Ïîçäðàâëÿþ!";
+    cout<<"Ð’Ñ‹ ÑƒÐ³Ð°Ð´Ð°Ð»Ð¸ ÑÐ»Ð¾Ð²Ð¾ - "<< str << " Ð’Ñ‹ Ð¼Ð¾Ð»Ð¾Ð´ÐµÑ†! ÐŸÐ¾Ð·Ð´Ñ€Ð°Ð²Ð»ÑÑŽ!";
     return 0;
 }
