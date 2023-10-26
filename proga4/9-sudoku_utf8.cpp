@@ -7,7 +7,6 @@
 using namespace std;
 
 void printCombination(int s, int n, vector<int> nel, vector<int> combination, int currSum, int startNum) {
-    // Если мы нашли комбинацию из n чисел, дающих сумму s, то выводим ее и выходим из функции.
     if (n == 0 && currSum == s) {
         for (int num : combination) {
             cout << num << " ";
@@ -15,19 +14,15 @@ void printCombination(int s, int n, vector<int> nel, vector<int> combination, in
         cout << endl;
         return;
     }
-    // Перебираем числа от startNum до 9.
     for (int i = startNum; i <= 9; i++) {
-        // Если i не входит в вектор nel, то добавляем его в combination и вызываем функцию рекурсивно,
-        // уменьшая количество оставшихся чисел на 1 и увеличивая текущую сумму на i.
         if (find(nel.begin(), nel.end(), i) == nel.end()) {
             combination.push_back(i);
             printCombination(s, n - 1, nel, combination, currSum + i, i + 1);
-            combination.pop_back(); // Удаляем последний элемент из combination перед следующей итерацией цикла.
+            combination.pop_back();
         }
     }
 }
 
-// Функция для вызова printCombination с начальными параметрами.
 void findCombinations(int s, int n, vector<int> nel) {
     vector<int> combination;
     printCombination(s, n, nel, combination, 0, 1);
