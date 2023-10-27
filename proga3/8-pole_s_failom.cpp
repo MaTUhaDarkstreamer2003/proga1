@@ -9,11 +9,13 @@
 #include <sstream>
 #include "game.h"
 #include "yakubovich.h"
+#include "game.cpp"
+#include "yakubovich.cpp"
 using namespace std;
 
 int main () {
-    yakobovich jame;
-    jame.start();
+    yakobovich lama;
+    lama.start();
     return 0;
     return 0;
 }
