@@ -9,12 +9,9 @@ using namespace std;
 
 class rec {
     public:
-        rec (float poz1, float poz2, float dlin, float wys) {
-            x = poz1;
-            y = poz2;
-            a = dlin;
-            b = wys;
+        rec (float poz1, float poz2, float dlin, float wys): x{poz1}, y{poz2}, a{dlin}, b{wys} {
     }
+
         float x;
         float y;
         float a;
@@ -23,15 +20,18 @@ class rec {
 
 class isp {
     public:
-        isp (rec rec1, rec rec2) {
-            if (rec2.x < rec1.x || rec2.y < rec1.y) {
-                rec rec3 = rec2;
-                rec2 = rec1;
-                rec1 = rec3;
+        isp (rec rec1, rec rec2): X{rec1}, Y{rec2} {
+            if (Y.x < X.x || Y.y < X.y) {
+                rec rec3 = Y;
+                Y = X;
+                X = rec3;
             }
-            if (rec1.x+rec1.a>=rec2.x && rec1.y+rec1.b>=rec2.y) { cout << "Пересекаются"; }
+            if (X.x+X.a>=Y.x && Y.y+X.b>=Y.y) { cout << "Пересекаются"; }
             else { cout << "Непересекаются";}
         }
+    private:
+        rec X;
+        rec Y;
 };
 
 int main () {
