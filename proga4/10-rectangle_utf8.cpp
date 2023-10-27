@@ -4,35 +4,10 @@
 #include <string> 
 #include <sstream>
 #include <vector>
-
+#include "rec.h"
+#include "isp.h"
 using namespace std;
 
-class rec {
-    public:
-        rec (float poz1, float poz2, float dlin, float wys): x{poz1}, y{poz2}, a{dlin}, b{wys} {
-    }
-
-        float x;
-        float y;
-        float a;
-        float b;
-};
-
-class isp {
-    public:
-        isp (rec rec1, rec rec2): X{rec1}, Y{rec2} {
-            if (Y.x < X.x || Y.y < X.y) {
-                rec rec3 = Y;
-                Y = X;
-                X = rec3;
-            }
-            if (X.x+X.a>=Y.x && Y.y+X.b>=Y.y) { cout << "Пересекаются"; }
-            else { cout << "Непересекаются";}
-        }
-    private:
-        rec X;
-        rec Y;
-};
 
 int main () {
     SetConsoleCP(1251);
