@@ -30,8 +30,8 @@ int main () {
         Fpp[i] = (F[i+1]-F[i])/h;
     }
 
-    Fpp.at(0) = (4*F[1]-3*F[0]-F[2])/(2*h);
-    Fpp.at(N) = -(4*F[N-1]-3*F[N]-F[N-2])/(2*h);
+    //Fpp.at(0) = (4*F[1]-3*F[0]-F[2])/(2*h);
+    Fpp.at(N) = (F[N]-F[N-1]) / (h);
 
     // proizvodnaya srednyaya
     vector<long double> Fps (X);
