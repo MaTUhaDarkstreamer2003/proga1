@@ -27,31 +27,35 @@ game::game() {
 }
 
 void game::play() {
-    
-        word = slovo();
-        guessedLetters.resize(word.length(), false);
-        for (int i; i<word.length(); i++) {
-            guessedLetters[i] = 0;
-        }
-        cout << word.length() << "\n";
-        for (int i = 0; i < word.size(); i++) {
-            cout << "-";
-        }
-        cout << "\n";
-        int o = 0;
-        while (o != word.size()) {
-            o = 0;
-            string popa;
-            char letter;
-            int count=0;
-            while (true) {
+    word = slovo();
+    guessedLetters.resize(word.length(), false);
+    for (int i = 0; i < word.length(); i++) {
+        guessedLetters[i] = false;
+    }
+    cout << word.length() << "\n";
+    for (int i = 0; i < word.size(); i++) {
+        cout << "-";
+    }
+    cout << "\n";
+    int o = 0;
+    while (o != word.size()) {
+        o = 0;
+        string ugadaika;
+        char letter;
+        int count = 0;
+        while (true) {
+            try {
                 cout << fraz[0];
-                cin >> popa;
+                cin >> ugadaika;
                 cout << "\n";
-                if (popa.length()!=1) {
-                    cout << fraz[1] << endl;
-                } else { break; }
-                count++;
+                if (ugadaika.length() > 1) {
+                    throw runtime_error(fraz[1]);
+                }
+                break;  // Если ввод корректен, прерываем цикл
+            }
+            catch (const exception& e) {
+                cout << e.what() << endl;
+                ++count;
                 if (count == 9) {
                     cout << fraz[2] << endl;
                 }
@@ -59,21 +63,23 @@ void game::play() {
                     exit(0);
                 }
             }
-            letter = popa.at(0);
-            checkLetter(letter);
-            for (int i = 0; i < word.size(); i++) {
-                if (guessedLetters[i]) {
-                    cout << word[i];
-                    o++;
-                } else {
-                    cout << "-";
-                }
+        }
+        letter = ugadaika.at(0);
+        checkLetter(letter);
+        for (int i = 0; i < word.size(); i++) {
+            if (guessedLetters[i]) {
+                cout << word[i];
+                o++;
             }
-            cout << endl;
+            else {
+                cout << "-";
+            }
         }
-        cout << fraz[3] << word << fraz[4] << endl;
-        guessedLetters.resize(word.length(), false);
-        }
+        cout << endl;
+    }
+    cout << fraz[3] << word << fraz[4] << endl;
+    guessedLetters.resize(word.length(), false);
+}
 
 string game::slovo() {  
 vector<string> words;
